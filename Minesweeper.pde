@@ -16,18 +16,16 @@ void setup ()
     {
       for (int k =0; k <NUM_COLS; k++)
       {        
-        buttons[i][k] = new MSButton(NUM_ROWS,NUM_COLS);
+        buttons[i][k] = new MSButton(i,k);
       }
-    }
-    //your code to declare and initialize buttons goes here
-    
-    
+    }        
     
     setBombs();
 }
 public void setBombs()
 {
-    //your code
+  col = (int)Math.random()*20;
+  row = (int)Math.random()*20;
 }
 
 public void draw ()
