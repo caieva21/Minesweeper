@@ -2,7 +2,7 @@ import de.bezier.guido.*;
 public final static int NUM_ROWS= 20;
 public final static int NUM_COLS = 20;
 private MSButton[][] buttons; //2d array of minesweeper buttons
-private ArrayList <MSButton> bombs = new ArrayList<MSButton>(); //ArrayList of just the minesweeper buttons that are mined
+private ArrayList <MSButton> bombs; //ArrayList of just the minesweeper buttons that are mined
 
 void setup ()
 {
@@ -18,17 +18,18 @@ void setup ()
     {        
       buttons[i][k] = new MSButton(i, k);
     }
-  }        
+  }
+  bombs = new ArrayList<MSButton>();
   setBombs();
 }
 public void setBombs()
 {
 
-  if (bombs.size() < 30)
+  for (int i = 0; i<=30; i++)
   {
     int col = (int)(Math.random()*NUM_ROWS);
     int row = (int)(Math.random()*NUM_COLS);
-    if (bombs.contains(buttons[row][col]) == false)
+    if (!bombs.contains(buttons[row][col]))
       bombs.add(buttons[row][col]);
   }
 }
