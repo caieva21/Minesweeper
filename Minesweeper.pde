@@ -89,10 +89,25 @@ public class MSButton
     if(marked ==true)
       marked = false;
     else if(bombs.contains(this))
-      displayLosingMessage();
-      
+      displayLosingMessage();      
     else if(countBombs(r,c)>0)
        setLabel("" +countBombs(r,c));
+    if (isValid(r+1, c) && buttons[r+1][c].isClicked() == false)
+       buttons[r+1][c].mousePressed();
+    if (isValid(r-1, c) &&buttons[r-1][c].isClicked() == false)
+       buttons[r-1][c].mousePressed();
+    if (isValid(r, c+1) &&buttons[r][c+1].isClicked() == false)
+       buttons[r][c+1].mousePressed();
+    if (isValid(r, c-1) &&buttons[r][c-1].isClicked() == false)
+       buttons[r][c-1].mousePressed();
+    if (isValid(r+1, c+1) &&buttons[r+1][c+1].isClicked() == false)
+       buttons[r+1][c+1].mousePressed();
+    if (isValid(r+1, c-1) &&buttons[r+1][c-1].isClicked()== false)
+       buttons[r+1][c-1].mousePressed();
+    if (isValid(r-1, c+1) &&buttons[r-1][c+1].isClicked() == false)
+       buttons[r-1][c+1].mousePressed();
+    if (isValid(r-1, c-1) &&buttons[r-1][c-1].isClicked() == false)
+       buttons[r-1][c-1].mousePressed();
     //marked = false;  
   }
 
