@@ -85,42 +85,37 @@ public class MSButton
 
   public void mousePressed () 
   {
-    clicked = true;
-    if (marked ==true)
-      marked = false;
+    if (mouseButton == LEFT) {clicked = true;}
+    if (mouseButton == RIGHT) {marked = !marked;}
     else if (bombs.contains(this))
       displayLosingMessage();      
     else if (countBombs(r, c)>0)
       setLabel("" +countBombs(r, c));
-
-    for (int nextR = -1; nextR < 2; nextR++)
-      for (int nextC = -1; nextC <2; nextC++)
-         if (isValid(r + nextR, c+nextC) && buttons[r + nextR][c+nextC].isClicked() == false)
-             buttons[r+nextR][c+nextC].mousePressed();
-    
-    
-    
-   /* if (isValid(r+1, c-1) &&buttons[r+1][c-1].isClicked()== false)
-        buttons[r+1][c-1].mousePressed();
-    if (isValid(r+1, c) && buttons[r+1][c].isClicked() == false)
-      buttons[r+1][c].mousePressed();
-    if (isValid(r+1, c+1) &&buttons[r+1][c+1].isClicked() == false)
-      buttons[r+1][c+1].mousePressed();
-
-    if (isValid(r, c-1) &&buttons[r][c-1].isClicked() == false)
-      buttons[r][c-1].mousePressed(); 
-    if (isValid(r, c+1) &&buttons[r][c+1].isClicked() == false)
-      buttons[r][c+1].mousePressed();
+    else {
+      for (int nextR = -1; nextR < 2; nextR++)
+        for (int nextC = -1; nextC <2; nextC++)
+          if (isValid(r + nextR, c+nextC) && buttons[r + nextR][c+nextC].isClicked() == false)
+            buttons[r+nextR][c+nextC].mousePressed();
+    }
 
 
-    if (isValid(r-1, c-1) &&buttons[r-1][c-1].isClicked() == false)
-      buttons[r-1][c-1].mousePressed();
-    if (isValid(r-1, c) &&buttons[r-1][c].isClicked() == false)
-      buttons[r-1][c].mousePressed();    
-    if (isValid(r-1, c+1) &&buttons[r-1][c+1].isClicked() == false)
-      buttons[r-1][c+1].mousePressed();
-
-    //marked = false;*/
+    /* if (isValid(r+1, c-1) &&buttons[r+1][c-1].isClicked()== false)
+     buttons[r+1][c-1].mousePressed();
+     if (isValid(r+1, c) && buttons[r+1][c].isClicked() == false)
+     buttons[r+1][c].mousePressed();
+     if (isValid(r+1, c+1) &&buttons[r+1][c+1].isClicked() == false)
+     buttons[r+1][c+1].mousePressed();
+     if (isValid(r, c-1) &&buttons[r][c-1].isClicked() == false)
+     buttons[r][c-1].mousePressed(); 
+     if (isValid(r, c+1) &&buttons[r][c+1].isClicked() == false)
+     buttons[r][c+1].mousePressed();
+     if (isValid(r-1, c-1) &&buttons[r-1][c-1].isClicked() == false)
+     buttons[r-1][c-1].mousePressed();
+     if (isValid(r-1, c) &&buttons[r-1][c].isClicked() == false)
+     buttons[r-1][c].mousePressed();    
+     if (isValid(r-1, c+1) &&buttons[r-1][c+1].isClicked() == false)
+     buttons[r-1][c+1].mousePressed();
+     //marked = false;*/
   }
 
   public void draw () 
